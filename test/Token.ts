@@ -9,10 +9,7 @@ describe("Token contract", function () {
         const owner: SignerWithAddress = allSigners[0]
         const Token: ContractFactory = await ethers.getContractFactory("Token");
         const hardhatToken: Contract = await Token.deploy();
-        const ownerBalance: Number = await hardhatToken.balanceOf(owner.address);
-       
-        console.log(allSigners.map((signer: SignerWithAddress): string => signer.address))
-        
+        const ownerBalance: Number = await hardhatToken.balanceOf(owner.address); 
         expect(await hardhatToken.totalSupply()).to.equal(ownerBalance);
     });
 });
